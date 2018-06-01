@@ -1,0 +1,12 @@
+D:\WorkPlace\MyProjects\QuiApp\QuiApp\bin\Debug\netcoreapp2.0\QuiApp.deps.json
+D:\WorkPlace\MyProjects\QuiApp\QuiApp\bin\Debug\netcoreapp2.0\QuiApp.runtimeconfig.json
+D:\WorkPlace\MyProjects\QuiApp\QuiApp\bin\Debug\netcoreapp2.0\QuiApp.runtimeconfig.dev.json
+D:\WorkPlace\MyProjects\QuiApp\QuiApp\bin\Debug\netcoreapp2.0\QuiApp.dll
+D:\WorkPlace\MyProjects\QuiApp\QuiApp\bin\Debug\netcoreapp2.0\QuiApp.pdb
+D:\WorkPlace\MyProjects\QuiApp\QuiApp\obj\Debug\netcoreapp2.0\QuiApp.csproj.CoreCompileInputs.cache
+D:\WorkPlace\MyProjects\QuiApp\QuiApp\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+D:\WorkPlace\MyProjects\QuiApp\QuiApp\obj\Debug\netcoreapp2.0\QuiApp.AssemblyInfoInputs.cache
+D:\WorkPlace\MyProjects\QuiApp\QuiApp\obj\Debug\netcoreapp2.0\QuiApp.AssemblyInfo.cs
+D:\WorkPlace\MyProjects\QuiApp\QuiApp\obj\Debug\netcoreapp2.0\QuiApp.dll
+D:\WorkPlace\MyProjects\QuiApp\QuiApp\obj\Debug\netcoreapp2.0\QuiApp.pdb
+D:\WorkPlace\MyProjects\QuiApp\QuiApp\obj\Debug\netcoreapp2.0\QuiApp.csprojAssemblyReference.cache

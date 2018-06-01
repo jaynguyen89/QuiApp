@@ -37,6 +37,7 @@ namespace QuiApp
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
+            services.AddDbContext<Models.QuiAppDbContext>(options => options.UseSqlServer(Configuration["Data:QuiAppDbContext:ConnectionString"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
