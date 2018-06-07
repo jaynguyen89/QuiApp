@@ -18,7 +18,9 @@ namespace QuiApp.Models
         public int Id { get; set; }
         public string UserId { get; set; }
         public double? WeightedMark { get; set; }
-        public bool IsMarkEditted { get; set; }
+        public bool? IsMarkEditted { get; set; }
+        public string Notes { get; set; }
+        public bool? IsActive { get; set; }
 
         public AspNetUsers User { get; set; }
         public ICollection<ClassStudents> ClassStudents { get; set; }

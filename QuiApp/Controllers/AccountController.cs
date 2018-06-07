@@ -220,7 +220,8 @@ namespace QuiApp.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var shortUsername = (model.Email.Split('@'))[0];
+                var user = new ApplicationUser { UserName = shortUsername, Email = model.Email };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

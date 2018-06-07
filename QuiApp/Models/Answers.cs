@@ -8,7 +8,7 @@ namespace QuiApp.Models
         public int Id { get; set; }
         public int QuestionId { get; set; }
         public string AnswerOption { get; set; }
-        public bool IsCorrect { get; set; }
+        public bool? IsCorrect { get; set; }
         public bool? IsActive { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime UpdatedOn { get; set; }

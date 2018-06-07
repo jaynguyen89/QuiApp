@@ -17,7 +17,7 @@ namespace QuiApp.Models
         public string UserId { get; set; }
         public string Content { get; set; }
         public string VideoEmbed { get; set; }
-        public bool IsReserved { get; set; }
+        public bool? IsReserved { get; set; }
         public bool? IsRepeatable { get; set; }
         public bool? IsActive { get; set; }
         public DateTime CreatedOn { get; set; }

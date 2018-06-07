@@ -20,7 +20,7 @@ namespace QuiApp.Models
         public DateTime? ClosedOn { get; set; }
         public short? TestDuration { get; set; }
         public double? TestTotalMark { get; set; }
-        public byte AllowedAttempts { get; set; }
+        public byte? AllowedAttempts { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime UpdatedOn { get; set; }
         public bool? IsActive { get; set; }

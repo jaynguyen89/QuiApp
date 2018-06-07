@@ -26,10 +26,231 @@
     margin: 15px;
 }
 
+.homeIndex {
+    margin: 20px 0 !important;
+}
+
+.hrStyle {
+    width: 150px !important;
+    border: solid 1px #2185D0 !important;
+}
+
+.myfooter {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0 !important;
+    bottom: 0 !important;
+}
+
+.myMap {
+    border: solid white 1px;
+    border-radius: 7px;
+    height: 150px !important;
+}
+
+.myUserButton {
+    margin-left: 20px !important;
+}
+
+.myDropdown {
+    color: #1b1c1d !important;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
     .carousel-caption {
         display: none;
     }
+}
+
+.hidden.menu {
+    display: none;
+}
+
+.masthead.segment {
+    min-height: 420px;
+    padding: 1em 0em;
+}
+
+.masthead .logo.item img {
+    margin-right: 1em;
+}
+
+.masthead .ui.menu .ui.button {
+    margin-left: 0.5em;
+}
+
+.masthead h1.ui.header {
+    margin-top: 2em;
+    margin-bottom: 0em;
+    font-size: 4em;
+    font-weight: normal;
+}
+
+.masthead h2 {
+    font-size: 1.7em;
+    font-weight: normal;
+}
+
+.ui.vertical.stripe {
+    padding: 8em 0em;
+}
+
+.ui.vertical.stripe h3 {
+    font-size: 2em;
+}
+
+.ui.vertical.stripe .button + h3,
+.ui.vertical.stripe p + h3 {
+    margin-top: 3em;
+}
+
+.ui.vertical.stripe .floated.image {
+    clear: both;
+}
+
+.ui.vertical.stripe p {
+    font-size: 1.33em;
+}
+
+.ui.vertical.stripe .horizontal.divider {
+    margin: 3em 0em;
+}
+
+.quote.stripe.segment {
+    padding: 0em;
+}
+
+.quote.stripe.segment .grid .column {
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+.footer.segment {
+    padding: 1.5em 0em;
+}
+
+.secondary.pointing.menu .toc.item {
+    display: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .ui.fixed.menu {
+        display: none !important;
+    }
+
+    .secondary.pointing.menu .item,
+    .secondary.pointing.menu .menu {
+        display: none;
+    }
+
+    .secondary.pointing.menu .toc.item {
+        display: block;
+    }
+
+    .masthead.segment {
+        min-height: 350px;
+    }
+
+    .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+    }
+
+    .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+    }
+}
+
+body .ui.inverted.segment {
+    background-color: #1b1c1d;
+}
+
+#whole.segment {
+    height: 500px;
+}
+
+.ui.borderless.inverted.menu {
+    background-color: #2f2f2f;
+    border-radius: 4px;
+}
+
+.ui.borderless.inverted.menu .active.item {
+    background-color: black;
+}
+
+p code {
+    background-color: white;
+    border-radius: 4px;
+}
+
+#slide.row {
+    width: 300vw !important;
+    overflow: hidden;
+    position: absolute;
+    margin-top: 5em;
+}
+
+#slide.row .column {
+    padding: 0 !important;
+    margin-top: -100px !important;
+}
+
+#slide.row .column h1.header {
+    font-size: 2.5em;
+}
+
+#slide.row .column p {
+    font-size: 1.4em;
+    line-height: 1.4;
+}
+
+#control.grid {
+    position: relative;
+    top: 7em;
+}
+
+#control.grid .ui.button {
+    box-shadow: none;
+}
+
+#control.grid .ui.button:hover {
+    background: transparent !important;
+}
+
+#control.grid .ui.button .icon {
+    color: #bfbfbf;
+}
+
+#control.grid .ui.button .icon:hover {
+    background: transparent;
+    color: white;
+}
+
+#bubble.row {
+    position: absolute;
+    bottom: 0;
+}
+
+.ui.grid .ui.items .item .content {
+    align-self: center;
+}
+
+.ui.grid .ui.items .item .content h1 {
+    font-size: 3.5em;
+}
+
+.ui.grid .ui.items .item .content h1 span.disabled {
+    color: grey;
+}
+
+.ui.grid .ui.items .item .content p {
+    font-size: 1.5em;
+    line-height: 1.5;
+}
+
+.ui.footer.container {
+    font-size: 1.2em;
 }
