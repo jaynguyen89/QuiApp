@@ -9,7 +9,7 @@ namespace QuiApp.Models
         public int CourseId { get; set; }
         public int StaffId { get; set; }
         public DateTime NominatedDate { get; set; }
-        public bool IsHeadTutor { get; set; }
+        public bool? IsHeadTutor { get; set; }
         public bool? IsActive { get; set; }
 
         public Courses Course { get; set; }

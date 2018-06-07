@@ -5,67 +5,170 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - QuiApp</title>
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/semantic.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" />
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/knockout-3.4.2.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">QuiApp</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
+    <!--Hidden Scrolling Menu-->
+    <div class="ui large top fixed hidden menu">
+        <div class="ui container">
+            <a class="active item" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            <a class="item" asp-area="" asp-controller="Home" asp-action="About">About</a>
+            <a class="item" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+            <div class="right menu">
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - QuiApp</p>
-        </footer>
     </div>
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
+    <!--Vertical Side Menu-->
+    <div class="ui vertical inverted sidebar menu">
+        <a class="active item" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        <a class="item" asp-area="" asp-controller="Home" asp-action="About">About</a>
+        <a class="item" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+        @await Html.PartialAsync("_LoginPartial")
+    </div>
+
+    <!--Page Persistent Navbar and Carousel-->
+    <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
+            <!--Persistent Navbar-->
+            <div class="ui container">
+                <div class="ui large secondary inverted pointing menu">
+                    <a class="toc item"><i class="fas fa-bars fa-2x"></i></a>
+                    <a class="active item" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    <a class="item" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                    <div class="right item">
+                        @await Html.PartialAsync("_LoginPartial")
+                    </div>
+                </div>
+            </div>
+
+            <!--Carousel-->
+            <div class="ui grid">
+                <div class="three column row" id="slide">
+                    <div class="active column" data-tab="1">
+                        <div class="ui inverted vertical center aligned segment">
+                            <div class="ui active text container">
+                                <h1 class="ui inverted header">
+                                    Qui - Jay's Personal Project.
+                                </h1>
+                                <p>
+                                   Jay aims to revise the essential skills and knowledge in ASP.NET MVC. 
+                                    He expects to understand all of the concepts from basic to advance, then explore the wider range of related technologies.
+                                </p>
+                                <div class="ui huge primary button">
+                                    Sign up today
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column" data-tab="2">
+                        <div class="ui inverted vertical center aligned segment">
+                            <div class="ui active text container">
+                                <h1 class="ui inverted header">
+                                    Qui - Skills Pooling
+                                </h1>
+                                <p>
+                                    With the features to be implemented, Jay intentionally puts his steps out of comfort zone. 
+                                    He is seeking for an opportunity to review and learn more about Algorithms and Solution Designs.
+                                </p>
+                                <div class="ui huge primary button">
+                                    Learn more
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column" data-tab="3">
+                        <div class="ui inverted vertical center aligned segment">
+                            <div class="ui active text container">
+                                <h1 class="ui inverted header">
+                                    The MVVM & RESTful API
+                                </h1>
+                                <p>
+                                    RESTful API and SOAP based applications are becoming standards in the IT industry.
+                                    Therefore the reason for this project is simply that Jay wants to be a member in this society.
+                                </p>
+                                <div class="ui huge primary button">
+                                    Browse gallery
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="bubble">
+                    <div class="ui center aligned container">
+                        <div class="ui circular icon green mini button"></div>
+                        <div class="ui circular icon mini button"></div>
+                        <div class="ui circular icon mini button"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui grid" id="control">
+                <div class="row">
+                    <div class="three wide left floated column">
+                        <div class="ui basic big button" id="left">
+                            <i class="fas fa-angle-left fa-3x"></i>
+                        </div>
+                    </div>
+                    <div class="three wide right floated column">
+                        <div class="ui basic big button" id="right">
+                            <i class="fas fa-angle-right fa-3x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Page Body-->
+    <div class="ui container">
+        @RenderBody()
+    </div>
+
+    <!--Page Footer-->
+    <div class="ui inverted vertical footer segment myfooter">
+        <div class="ui container">
+            <div class="ui stackable inverted divided equal height stackable grid">
+                <div class="three wide column">
+                    <h4 class="ui inverted header">
+                        Technologies
+                    </h4>
+                    <div class="ui inverted link list">
+                        <a class="item" href="#">OO-C#</a>
+                        <a class="item" href="#">ASP.NET MVC5</a>
+                        <a class="item" href="#">Transact-SQL</a>
+                        <a class="item" href="#">Semantic UI</a>
+                        <a class="item" href="#">LinQ Query</a>
+                        <a class="item" href="#">KnockOut JS</a>
+                    </div>
+                </div>
+                <div class="ten wide column">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6305.740244554867!2d144.80486879999998!3d-37.79308339999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad66014f07f22bd%3A0x64678c572c4cfb89!2sUnit+1%2F15+Haven+Cl%2C+Sunshine+West+VIC+3020!5e0!3m2!1sen!2sau!4v1528267895140" width="100%" class="myMap"></iframe>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header">
+                        Tools
+                    </h4>
+                    <div class="ui inverted link list">
+                        <a class="item" href="#">MS VS2017</a>
+                        <a class="item" href="#">MS SQL Server</a>
+                        <a class="item" href="#">Login APIs</a>
+                        <a class="item" href="#">Trello</a>
+                        <a class="item" href="#">Git</a>
+                        <a class="item" href="#">Docker</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/semantic.js"></script>
+    <script src="~/js/site.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

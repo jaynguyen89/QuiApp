@@ -9,7 +9,7 @@ namespace QuiApp.Models
         public int StudentId { get; set; }
         public int TestId { get; set; }
         public double? Mark { get; set; }
-        public bool IsEditted { get; set; }
+        public bool? IsEditted { get; set; }
         public string EdittedBy { get; set; }
         public DateTime MarkedOn { get; set; }
         public DateTime EdittedOn { get; set; }

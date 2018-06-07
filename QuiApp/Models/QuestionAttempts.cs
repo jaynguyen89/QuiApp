@@ -9,7 +9,7 @@ namespace QuiApp.Models
         public int QuestionId { get; set; }
         public int StudentId { get; set; }
         public int TestAttemptId { get; set; }
-        public bool IsCorrect { get; set; }
+        public bool? IsCorrect { get; set; }
         public short? TimeTaken { get; set; }
 
         public Questions Question { get; set; }

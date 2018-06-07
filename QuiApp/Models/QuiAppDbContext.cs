@@ -31,6 +31,9 @@ namespace QuiApp.Models
         public virtual DbSet<TestAttempts> TestAttempts { get; set; }
         public virtual DbSet<Tests> Tests { get; set; }
 
+        public QuiAppDbContext(DbContextOptions<QuiAppDbContext> options)
+            : base(options) { }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -47,8 +50,6 @@ namespace QuiApp.Models
                 entity.Property(e => e.AnswerOption).HasMaxLength(500);
 
                 entity.Property(e => e.CreatedOn).HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.UpdatedOn).HasDefaultValueSql("(getdate())");
 
@@ -137,8 +138,6 @@ namespace QuiApp.Models
 
                 entity.Property(e => e.Email).HasMaxLength(256);
 
-                entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
-
                 entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
 
                 entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
@@ -161,8 +160,6 @@ namespace QuiApp.Models
 
                 entity.Property(e => e.CreatedOn).HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
-
                 entity.HasOne(d => d.Course)
                     .WithMany(p => p.Classes)
                     .HasForeignKey(d => d.CourseId)
@@ -178,8 +175,6 @@ namespace QuiApp.Models
 
             modelBuilder.Entity<ClassStudents>(entity =>
             {
-                entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
-
                 entity.Property(e => e.JointDate).HasDefaultValueSql("(getdate())");
 
                 entity.HasOne(d => d.Class)
@@ -198,8 +193,6 @@ namespace QuiApp.Models
             modelBuilder.Entity<ClassTutors>(entity =>
             {
                 entity.Property(e => e.AssignedDate).HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
 
                 entity.HasOne(d => d.Class)
                     .WithMany(p => p.ClassTutors)
@@ -222,8 +215,6 @@ namespace QuiApp.Models
 
                 entity.Property(e => e.CreatedOn).HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
-
                 entity.Property(e => e.LongDescription).HasMaxLength(4000);
 
                 entity.Property(e => e.ShortDescription).HasMaxLength(200);
@@ -241,8 +232,6 @@ namespace QuiApp.Models
             {
                 entity.Property(e => e.EnroledDate).HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
-
                 entity.HasOne(d => d.Course)
                     .WithMany(p => p.CourseStudents)
                     .HasForeignKey(d => d.CourseId)
@@ -258,8 +247,6 @@ namespace QuiApp.Models
 
             modelBuilder.Entity<CourseTutors>(entity =>
             {
-                entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
-
                 entity.Property(e => e.NominatedDate).HasDefaultValueSql("(getdate())");
 
                 entity.HasOne(d => d.Course)
@@ -298,8 +285,6 @@ namespace QuiApp.Models
 
             modelBuilder.Entity<PartQuestions>(entity =>
             {
-                entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
-
                 entity.HasOne(d => d.Part)
                     .WithMany(p => p.PartQuestions)
                     .HasForeignKey(d => d.PartId)
@@ -315,11 +300,7 @@ namespace QuiApp.Models
 
             modelBuilder.Entity<Parts>(entity =>
             {
-                entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
-
                 entity.Property(e => e.PartDescription).HasMaxLength(200);
-
-                entity.Property(e => e.PartOrder).HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.PartTitle).HasMaxLength(50);
 
@@ -357,10 +338,6 @@ namespace QuiApp.Models
 
                 entity.Property(e => e.CreatedOn).HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
-
-                entity.Property(e => e.IsRepeatable).HasDefaultValueSql("((1))");
-
                 entity.Property(e => e.UpdatedOn).HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.UserId)
@@ -384,7 +361,7 @@ namespace QuiApp.Models
 
             modelBuilder.Entity<Staffs>(entity =>
             {
-                entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
+                entity.Property(e => e.Notes).HasMaxLength(250);
 
                 entity.Property(e => e.Office).HasMaxLength(150);
 
@@ -403,6 +380,8 @@ namespace QuiApp.Models
 
             modelBuilder.Entity<Students>(entity =>
             {
+                entity.Property(e => e.Notes).HasMaxLength(250);
+
                 entity.Property(e => e.UserId)
                     .IsRequired()
                     .HasMaxLength(450);
@@ -452,11 +431,7 @@ namespace QuiApp.Models
 
             modelBuilder.Entity<Tests>(entity =>
             {
-                entity.Property(e => e.AllowedAttempts).HasDefaultValueSql("((1))");
-
                 entity.Property(e => e.CreatedOn).HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.UpdatedOn).HasDefaultValueSql("(getdate())");
 

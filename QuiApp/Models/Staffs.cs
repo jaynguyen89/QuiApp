@@ -17,8 +17,9 @@ namespace QuiApp.Models
         public int Id { get; set; }
         public string UserId { get; set; }
         public string Title { get; set; }
-        public bool IsLecturer { get; set; }
+        public bool? IsLecturer { get; set; }
         public string Office { get; set; }
+        public string Notes { get; set; }
         public bool? IsActive { get; set; }
 
         public AspNetUsers User { get; set; }
