@@ -17,7 +17,7 @@ namespace QuiApp.Models.ManageViewModels
         public string Email { get; set; }
 
         [Phone]
-        [Display(Name = "Phone number")]
+        [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
         public string StatusMessage { get; set; }

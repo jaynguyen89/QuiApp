@@ -13,6 +13,8 @@ namespace QuiApp.Views.Manage
 
         public static string Index => "Index";
 
+        public static string UserInformation => "UserInformation";
+
         public static string ChangePassword => "ChangePassword";
 
         public static string ExternalLogins => "ExternalLogins";

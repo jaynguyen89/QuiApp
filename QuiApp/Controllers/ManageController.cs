@@ -51,9 +51,7 @@ namespace QuiApp.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
-            {
                 throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-            }
 
             var model = new IndexViewModel
             {
@@ -106,28 +104,76 @@ namespace QuiApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
+        public async Task<IActionResult> UserInformation() {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+
+            var model = new UserInformationViewModel {
+                FamilyName = user.FamilyName,
+                MiddleName = user.MiddleName,
+                GiveName = user.GiveName,
+                UserCode = user.UserCode
+            };
+
+            return View(model);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SendVerificationEmail(IndexViewModel model)
-        {
+        public async Task<IActionResult> UserInformation(UserInformationViewModel model) {
             if (!ModelState.IsValid)
+                return View(model);
+
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+
+            var QuiDb = new QuiAppDbContext();
+            var userInstance = QuiDb.AspNetUsers.Find(user.Id);
+            
+            if (model.FamilyName != user.FamilyName)
+                userInstance.FamilyName = model.FamilyName;
+            
+            if (model.MiddleName != user.MiddleName)
+                userInstance.MiddleName = model.MiddleName;
+
+            if (model.GiveName != user.GiveName)
+                userInstance.GiveName = model.GiveName;
+
+            if (model.UserCode != user.UserCode)
+                userInstance.UserCode = model.UserCode;
+
+            QuiDb.Entry(userInstance).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            QuiDb.SaveChanges();
+
+            StatusMessage = "Your profile has been updated";
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async void SendVerificationEmail(IndexViewModel model)
+        {
+            /*if (!ModelState.IsValid)
             {
                 return View(model);
-            }
+            }*/
 
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
                 throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
-
+            
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
             var email = user.Email;
             await _emailSender.SendEmailConfirmationAsync(email, callbackUrl);
 
             StatusMessage = "Verification email sent. Please check your email.";
-            return RedirectToAction(nameof(Index));
+            //return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]

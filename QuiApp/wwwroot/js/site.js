@@ -24,7 +24,11 @@ $(document)
 // Javascript that controls the transition of carousel
 
 $(document).ready(function () {
+    // Make the dropdown work on user account link
     $('.ui.dropdown').dropdown();
+
+    //make the tab view work
+    $('.tabular.menu .item').tab({ history: false });
 
     // make the corresponding bubble button change color
     function activate() {

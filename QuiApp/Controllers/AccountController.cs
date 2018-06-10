@@ -42,8 +42,7 @@ namespace QuiApp.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(string returnUrl = null)
-        {
+        public async Task<IActionResult> Login(string returnUrl = null) {
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
@@ -56,6 +55,7 @@ namespace QuiApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
+            returnUrl = (returnUrl ?? "Manage/Index");
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
@@ -65,6 +65,10 @@ namespace QuiApp.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+
+                    if (returnUrl == null)
+                        return RedirectToAction("Index", "Manage");
+                    
                     return RedirectToLocal(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -221,7 +225,7 @@ namespace QuiApp.Controllers
             if (ModelState.IsValid)
             {
                 var shortUsername = (model.Email.Split('@'))[0];
-                var user = new ApplicationUser { UserName = shortUsername, Email = model.Email };
+                var user = new ApplicationUser { UserName = shortUsername, Email = model.Email, IsActive = true };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

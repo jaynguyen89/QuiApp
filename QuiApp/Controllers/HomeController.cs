@@ -15,10 +15,7 @@ namespace QuiApp.Controllers
             return View();
         }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
+        public IActionResult About() {
             return View();
         }
 

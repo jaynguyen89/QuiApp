@@ -34,6 +34,8 @@ namespace QuiApp.Models
         public QuiAppDbContext(DbContextOptions<QuiAppDbContext> options)
             : base(options) { }
 
+        public QuiAppDbContext() { }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

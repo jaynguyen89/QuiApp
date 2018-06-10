@@ -254,3 +254,15 @@ p code {
 .ui.footer.container {
     font-size: 1.2em;
 }
+
+.redText {
+    color: #B03060 !important;
+}
+
+.greenText {
+    color: #016936 !important;
+}
+
+.warningText {
+    color: #FFD700 !important;
+}
